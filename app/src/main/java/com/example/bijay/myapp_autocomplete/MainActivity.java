@@ -11,27 +11,29 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-    ActSQLiteOpenHelperP db = new ActSQLiteOpenHelperP(this);
+    ActSQLiteOpenHelperP db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db.onUpgrade(db.getWritableDatabase(), 1, 2);
-        db.createProduct(new Product("HP Inkjet printer"));
-        db.createProduct(new Product("HP Inkjet1 printer"));
-        db.createProduct(new Product("HP Inkjet2 printer"));
-        db.createProduct(new Product("HP Inkjet3 printer"));
-        db.createProduct(new Product("HP Inkjet4 printer"));
-        db.createProduct(new Product("HP Laserjet1 printer"));
-        db.createProduct(new Product("HP Laserjet2 printer"));
-        db.createProduct(new Product("HP Laserjet3 printer"));
-        db.createProduct(new Product("HP Laserjet4 printer"));
-        db.createProduct(new Product("HP Deskjet1 printer"));
-        db.createProduct(new Product("HP Deskjet2 printer"));
-        db.createProduct(new Product("HP Deskjet3 printer"));
-        db.createProduct(new Product("HP Deskjet4 printer"));
+        db = new ActSQLiteOpenHelperP(this);
+        db.getWritableDatabase();
+
+        db.createProduct(new Product("HP Inkjet 1100 printer"));
+        db.createProduct(new Product("HP Inkjet 1200 printer"));
+        db.createProduct(new Product("HP Inkjet 1300 printer"));
+        db.createProduct(new Product("HP Inkjet 1400 printer"));
+        db.createProduct(new Product("HP Inkjet 1500 printer"));
+        db.createProduct(new Product("HP Laserjet 2100 printer"));
+        db.createProduct(new Product("HP Laserjet 2200 printer"));
+        db.createProduct(new Product("HP Laserjet 2300 printer"));
+        db.createProduct(new Product("HP Laserjet 2400 printer"));
+        db.createProduct(new Product("HP Deskjet 3100 printer"));
+        db.createProduct(new Product("HP Deskjet 3200 printer"));
+        db.createProduct(new Product("HP Deskjet 3400 printer"));
+        db.createProduct(new Product("HP Deskjet 3500 printer"));
 
         AutoCompleteTextView view = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
 
@@ -47,6 +49,5 @@ public class MainActivity extends Activity {
         myAdapter=new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,stringProducts);
         view.setAdapter(myAdapter);
 
-        finish();
     }
 }

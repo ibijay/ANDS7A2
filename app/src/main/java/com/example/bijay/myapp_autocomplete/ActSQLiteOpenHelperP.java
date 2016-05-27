@@ -25,13 +25,13 @@ public class ActSQLiteOpenHelperP extends SQLiteOpenHelper {
     public ActSQLiteOpenHelperP(Context context){super(context, db_name, null, db_version);}
 
     public void onCreate(SQLiteDatabase db){
-        String create_products_table = "CREATE TABLE " + tb_name + " ( " + product_id + " INTEGER PRIMARY KEY AUTOINCREAMENT, " + product_name +" TEXT )";
+        String create_products_table = "CREATE TABLE " + tb_name + " ( " + product_id + " INTEGER PRIMARY KEY AUTOINCREMENT, " + product_name +" TEXT )";
         db.execSQL(create_products_table);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVesion){
-        String drop_names_table = "DROP TABLE IF EXISTS " + tb_name;
-        db.execSQL(drop_names_table);
+        //String drop_names_table = "DROP TABLE IF EXISTS " + tb_name;
+        //db.execSQL(drop_names_table);
     }
 
     public void createProduct(Product product){
